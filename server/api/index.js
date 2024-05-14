@@ -129,7 +129,7 @@ app.get("/bookings", verify, async (req, res) => {
     if (bookingDate && bookingTime) {
       const params = [bookingDate, bookingTime];
       query =
-        "SELECT booking.id, booking.description, booking.booking_date, booking.booking_time, booking.booking_timestamp, booking.is_emailed, booking.uid, users.username, users.email FROM booking INNER JOIN users ON booking.uid = users.id WHERE booking_date = $1 AND booking_time = $2";
+        "SELECT booking.id, booking.description, booking_email, booking_phone, booking.booking_date, booking.booking_time, booking.booking_timestamp, booking.is_emailed, booking.uid, users.usernamebooking_email, booking_phone,  FROM booking INNER JOIN users ON booking.uid = users.id WHERE booking_date = $1 AND booking_time = $2";
       result = await client.query(query, params);
       if (result.rows.length === 0) {
         return res
@@ -141,7 +141,7 @@ app.get("/bookings", verify, async (req, res) => {
     } else if (bookingDate) {
       // If booking date only included as query parameter
       query =
-        "SELECT booking.id, booking.description, booking.booking_date, booking.booking_time, booking.booking_timestamp, booking.is_emailed, booking.uid, users.username, users.email FROM booking INNER JOIN users ON booking.uid = users.id WHERE booking_date = $1";
+        "SELECT booking.id, booking.description, booking_email, booking_phone, booking.booking_date, booking.booking_time, booking.booking_timestamp, booking.is_emailed, booking.uid, users.usernamebooking_email, booking_phone,  FROM booking INNER JOIN users ON booking.uid = users.id WHERE booking_date = $1";
       result = await client.query(query, [bookingDate]);
       if (result.rows.length === 0) {
         return res
