@@ -37,14 +37,12 @@ const BookingForm = ({ onSuccess, mode, handleCloseModal, bookingData }) => {
   useEffect(() => {
     // Fetch booking data when selectedDate changes
     if (selectedDate) {
-      console.log("Selected date found:", selectedDate);
       fetchBookingByDate(selectedDate);
     }
   }, [selectedDate]);
 
   const fetchBookingByDate = async (selectDate) => {
     try {
-      console.log(`authToken: ${authToken}`);
       const bookingDate = moment(selectDate).format("YYYYMMDD");
       const response = await axios.get(`${API_URL}/bookings?bookingDate=${bookingDate}`, {
         headers: {
