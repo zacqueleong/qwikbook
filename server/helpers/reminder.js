@@ -80,7 +80,7 @@ function sendEmail(id, user, receiver, bookdate, booktime) {
     theme: "default",
     product: {
       name: "Qwikbook",
-      link: "https://www.google.com",
+      link: "https://qwikbook-app.vercel.app",
     },
   });
 
