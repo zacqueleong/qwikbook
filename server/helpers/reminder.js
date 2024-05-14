@@ -102,6 +102,7 @@ function sendEmail(id, user, receiver, bookdate, booktime) {
   };
 
   // Define email parameters
+  const emailSender = "lessie.quitzon85@ethereal.email"; // Use lessie.quitzon85@ethereal.email for testing / proof of concept
   const emailReceiver = receiver;
   const emailSubject = "Qwikbook : Upcoming Appointment";
   const emailHTML = MailGenerator.generate(email);
@@ -109,7 +110,7 @@ function sendEmail(id, user, receiver, bookdate, booktime) {
 
   // Define mail options
   const mailOptions = {
-    from: "lessie.quitzon85@ethereal.email",
+    from: emailSender,
     to: emailReceiver,
     subject: emailSubject,
     html: emailHTML,
