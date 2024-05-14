@@ -49,7 +49,7 @@ async function checkBookingTime() {
           sendEmail(
             item.id,
             item.username,
-            item.email,
+            item.booking_email,
             bookingdate,
             bookingtime,
           );
