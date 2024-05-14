@@ -196,7 +196,6 @@ app.post("/bookings", verify, async (req, res) => {
   const client = await pool.connect();
 
   try {
-    console.log(req.body.is_emailed);
     // Form Request Data Object
     const data = {
       booking_description: req.body.booking_description,
